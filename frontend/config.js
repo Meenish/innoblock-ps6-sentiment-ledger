@@ -5,7 +5,7 @@
 const CONFIG = {
   CONTRACT_ADDRESS: "0x119cC959d84C882893468134eC0F5b78f571EF5B",
   // Backend: localhost while building, your https Render URL once deployed
-  BACKEND_URL: "http://localhost:5000",
+  BACKEND_URL: "https://sentiment-ledger-api.onrender.com",
 
   CHAIN_ID: 11155111,
   CHAIN_NAME: "Ethereum Sepolia",
