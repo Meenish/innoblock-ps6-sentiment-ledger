@@ -1,0 +1,448 @@
+[
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "allowed",
+        "type": "bool"
+      }
+    ],
+    "name": "PublisherSet",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "string",
+        "name": "tokenTopic",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "token",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "int16",
+        "name": "score",
+        "type": "int16"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "confidence",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint16",
+        "name": "sourceCount",
+        "type": "uint16"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "observedAt",
+        "type": "uint64"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "analysisHash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "publisher",
+        "type": "address"
+      }
+    ],
+    "name": "SignalPublished",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "CLASS_THRESHOLD",
+    "outputs": [
+      {
+        "internalType": "int16",
+        "name": "",
+        "type": "int16"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "int16",
+        "name": "score",
+        "type": "int16"
+      }
+    ],
+    "name": "classify",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "token",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "start",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "count",
+        "type": "uint256"
+      }
+    ],
+    "name": "getHistory",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "int16",
+            "name": "score",
+            "type": "int16"
+          },
+          {
+            "internalType": "uint8",
+            "name": "confidence",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint16",
+            "name": "sourceCount",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint64",
+            "name": "observedAt",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "recordedAt",
+            "type": "uint64"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "analysisHash",
+            "type": "bytes32"
+          }
+        ],
+        "internalType": "struct SentimentRegistry.Signal[]",
+        "name": "page",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getTokens",
+    "outputs": [
+      {
+        "internalType": "string[]",
+        "name": "",
+        "type": "string[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "token",
+        "type": "string"
+      }
+    ],
+    "name": "historyLength",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "isPublisher",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "token",
+        "type": "string"
+      }
+    ],
+    "name": "latest",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "int16",
+            "name": "score",
+            "type": "int16"
+          },
+          {
+            "internalType": "uint8",
+            "name": "confidence",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint16",
+            "name": "sourceCount",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint64",
+            "name": "observedAt",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "recordedAt",
+            "type": "uint64"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "analysisHash",
+            "type": "bytes32"
+          }
+        ],
+        "internalType": "struct SentimentRegistry.Signal",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "token",
+            "type": "string"
+          },
+          {
+            "internalType": "int16",
+            "name": "score",
+            "type": "int16"
+          },
+          {
+            "internalType": "uint8",
+            "name": "confidence",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint16",
+            "name": "sourceCount",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint64",
+            "name": "observedAt",
+            "type": "uint64"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "analysisHash",
+            "type": "bytes32"
+          }
+        ],
+        "internalType": "struct SentimentRegistry.SignalInput",
+        "name": "s",
+        "type": "tuple"
+      }
+    ],
+    "name": "publish",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "token",
+            "type": "string"
+          },
+          {
+            "internalType": "int16",
+            "name": "score",
+            "type": "int16"
+          },
+          {
+            "internalType": "uint8",
+            "name": "confidence",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint16",
+            "name": "sourceCount",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint64",
+            "name": "observedAt",
+            "type": "uint64"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "analysisHash",
+            "type": "bytes32"
+          }
+        ],
+        "internalType": "struct SentimentRegistry.SignalInput[]",
+        "name": "items",
+        "type": "tuple[]"
+      }
+    ],
+    "name": "publishBatch",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "allowed",
+        "type": "bool"
+      }
+    ],
+    "name": "setPublisher",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalSignals",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

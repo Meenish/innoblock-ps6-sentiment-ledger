@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sentiment Ledger</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <h1>Sentiment Ledger</h1>
+      <p>AI reads crypto news and publishes each token's mood to <a id="contract-link" target="_blank" rel="noopener">a public contract on Sepolia</a>.</p>
+    </div>
+    <div class="wallet">
+      <span id="net-badge" class="net">Reading Sepolia</span>
+      <span id="wallet-info" class="wallet-info" hidden></span>
+      <button id="connect-btn" class="btn">Connect wallet</button>
+    </div>
+  </header>
+
+  <div id="notice" class="notice" hidden></div>
+
+  <section class="agent" aria-label="Run the agent">
+    <div class="agent-controls">
+      <button id="run-btn" class="btn btn-primary">Run agent now</button>
+      <label class="src">Headlines from
+        <select id="run-source">
+          <option value="rss">live news feeds</option>
+          <option value="sample">sample dataset</option>
+        </select>
+      </label>
+    </div>
+    <ol id="run-steps" class="steps" hidden>
+      <li data-step="analyse">Reading and scoring headlines</li>
+      <li data-step="chain">Writing signals to Sepolia</li>
+      <li data-step="confirm">Checking the block directly on-chain</li>
+    </ol>
+    <p id="run-result" class="run-result" role="status" aria-live="polite"></p>
+  </section>
+
+  <nav id="token-tabs" class="tabs" aria-label="Tokens"></nav>
+
+  <main id="main" class="main">
+    <section class="reading" aria-live="polite">
+      <div class="reading-head">
+        <h2 id="r-token">Loading on-chain data</h2>
+        <span id="r-label" class="label"></span>
+      </div>
+      <div id="r-score" class="score">—</div>
+      <div class="scale" aria-hidden="true">
+        <div class="zone bear"></div><div class="zone neu"></div><div class="zone bull"></div>
+        <div id="r-needle" class="needle"></div>
+      </div>
+      <div class="scale-ends"><span>Bearish −100</span><span>0</span><span>+100 Bullish</span></div>
+      <dl class="facts">
+        <div><dt>Confidence</dt><dd><span id="r-conf">—</span><span class="bar"><span id="r-conf-bar"></span></span></dd></div>
+        <div><dt>Headlines used</dt><dd id="r-sources">—</dd></div>
+        <div><dt>News window ending</dt><dd id="r-observed">—</dd></div>
+        <div><dt>Written on-chain</dt><dd id="r-recorded">—</dd></div>
+      </dl>
+      <p id="r-tx" class="tx"></p>
+    </section>
+
+    <section class="trend">
+      <h3>How the mood moved</h3>
+      <p class="sub">Every point is a record read straight from the contract. Click one to inspect it.</p>
+      <div class="chart-wrap"><canvas id="chart" aria-label="Sentiment trend chart" role="img"></canvas></div>
+    </section>
+
+    <section class="why">
+      <h3>Why this score</h3>
+      <p id="why-method" class="sub"></p>
+      <ul id="headlines" class="headlines"></ul>
+    </section>
+
+    <section class="verify">
+      <h3>Check it against the chain</h3>
+      <p class="sub">The contract stores a fingerprint of the full analysis. Re-hash it here; change one character and it stops matching.</p>
+      <p class="hash-row">On-chain fingerprint <code id="v-onchain">—</code></p>
+      <textarea id="v-json" spellcheck="false" aria-label="Analysis JSON"></textarea>
+      <div class="verify-actions">
+        <button id="v-btn" class="btn">Verify against chain</button>
+        <button id="v-reset" class="btn btn-quiet">Restore original</button>
+        <span id="v-result" class="v-result" role="status"></span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>The blockchain proves what this agent published and when. It does not prove the AI was right.</p>
+    <p>Contract <a id="foot-contract" target="_blank" rel="noopener"></a></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.17.0/dist/ethers.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

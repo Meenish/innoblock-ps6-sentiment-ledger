@@ -1,0 +1,215 @@
+{
+ "note": "SYNTHETIC demo headlines written for INNOBLOCK 2.0 testing. Not real news. Used only for backfilling history and as a fallback when RSS feeds are unavailable.",
+ "items": [
+  {
+   "title": "Bitcoin slides as ETF outflows pick up for a third straight session",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 122.0
+  },
+  {
+   "title": "Analysts warn of further Bitcoin downside after weekend selloff",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 124.9
+  },
+  {
+   "title": "Ethereum developers delay testnet date for next network upgrade",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 127.7
+  },
+  {
+   "title": "Solana validators report brief slowdown in block production",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 130.6
+  },
+  {
+   "title": "Ripple and partners announce new cross-border payment pilot using XRP",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 133.4
+  },
+  {
+   "title": "Dogecoin trading volume falls to monthly low",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 136.3
+  },
+  {
+   "title": "Large BTC transfer to exchange sparks selling worries",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 139.1
+  },
+  {
+   "title": "Bitcoin steadies near support as traders wait for macro data",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 98.0
+  },
+  {
+   "title": "Ethereum gas fees drop to multi-month low as activity cools",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 101.3
+  },
+  {
+   "title": "Solana DeFi deposits shrink after a quiet week",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 104.7
+  },
+  {
+   "title": "XRP holds range as legal headlines fade",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 108.0
+  },
+  {
+   "title": "Bitcoin miners report stable revenue despite lower price",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 111.3
+  },
+  {
+   "title": "Ethereum staking deposits continue to rise",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 114.7
+  },
+  {
+   "title": "Bitcoin ETF inflows return after week of withdrawals",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 74.0
+  },
+  {
+   "title": "Major asset manager increases Bitcoin allocation in new filing",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 76.9
+  },
+  {
+   "title": "Ethereum upgrade successfully activated on public testnet",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 79.7
+  },
+  {
+   "title": "Solana network suffers partial outage, transactions delayed",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 82.6
+  },
+  {
+   "title": "Dogecoin jumps after payments company adds DOGE checkout",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 85.4
+  },
+  {
+   "title": "XRP ledger sees surge in new wallet activity",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 88.3
+  },
+  {
+   "title": "Bitcoin hash rate reaches record high",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 91.1
+  },
+  {
+   "title": "Bitcoin ETF inflows reach monthly high",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 50.0
+  },
+  {
+   "title": "Institutional desks report rising demand for BTC exposure",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 52.9
+  },
+  {
+   "title": "Ethereum layer-2 networks process record number of transactions",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 55.7
+  },
+  {
+   "title": "Solana developers publish post-mortem and fix for outage",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 58.6
+  },
+  {
+   "title": "Ethereum price climbs as staking yields attract investors",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 61.4
+  },
+  {
+   "title": "XRP slips as exchange delists several trading pairs",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 64.3
+  },
+  {
+   "title": "Bitcoin faces resistance near key level after rally",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 67.1
+  },
+  {
+   "title": "Bitcoin pulls back as long-term holders take profits",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 26.0
+  },
+  {
+   "title": "Regulators signal tougher rules for crypto exchanges, Bitcoin dips",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 28.9
+  },
+  {
+   "title": "Ethereum foundation outlines roadmap for faster finality",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 31.7
+  },
+  {
+   "title": "Solana loses market share to rival chains after outage",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 34.6
+  },
+  {
+   "title": "Second Solana congestion incident this month worries developers",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 37.4
+  },
+  {
+   "title": "Dogecoin rally fades as meme coin interest cools",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 40.3
+  },
+  {
+   "title": "XRP payment corridor volume grows for third week",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 43.1
+  },
+  {
+   "title": "Bitcoin rebounds as ETF inflows resume",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 2.0
+  },
+  {
+   "title": "Major company adds Bitcoin to its treasury reserves",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 4.5
+  },
+  {
+   "title": "Bitcoin mining difficulty reaches record high",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 7.0
+  },
+  {
+   "title": "Ethereum mainnet upgrade date confirmed after successful tests",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 9.5
+  },
+  {
+   "title": "Ethereum DeFi activity rises to highest level this quarter",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 12.0
+  },
+  {
+   "title": "Solana validator count falls slightly after outage concerns",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 14.5
+  },
+  {
+   "title": "XRP rises after new bank partnership announcement",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 17.0
+  },
+  {
+   "title": "Dogecoin holds steady with little news flow",
+   "source": "Sample dataset (synthetic)",
+   "hours_ago": 19.5
+  }
+ ]
+}
