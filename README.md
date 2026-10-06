@@ -9,7 +9,7 @@ A web dashboard draws the sentiment trend **directly from the on-chain records**
 | **Contract (verified)** | [`0x119cC959d84C882893468134eC0F5b78f571EF5B`](https://sepolia.etherscan.io/address/0x119cC959d84C882893468134eC0F5b78f571EF5B#code) on Ethereum Sepolia |
 | **Live dashboard** | https://sentiment-ledger-api.onrender.com |
 | **Backend API** | https://sentiment-ledger-api.onrender.com/health |
-| **Demo video** | _add link_ |
+| **Demo video** | https://drive.google.com/file/d/1eFxW5YQw4KmBf5qMmNH1hVlvFjRUjjpU/view?usp=sharing |
 | **Repo** | https://github.com/Meenish/innoblock-ps6-sentiment-ledger |
 
 ## Why a blockchain
