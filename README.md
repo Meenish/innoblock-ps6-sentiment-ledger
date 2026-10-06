@@ -104,7 +104,7 @@ python -m http.server 8000       # open http://localhost:8000 (not as a file://)
 - Sentiment is an information signal, not a price prediction or trading advice.
 
 ## TEAM LOKI
--_G.Meenish_
--_K Alan Biju_
--_E.Jagadeesh_
--_G.Krishna Reddy_
+_G.Meenish_,
+_K Alan Biju_,
+_E.Jagadeesh_,
+_G.Krishna Reddy_
