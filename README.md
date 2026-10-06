@@ -7,7 +7,7 @@ A web dashboard draws the sentiment trend **directly from the on-chain records**
 | | |
 |---|---|
 | **Contract (verified)** | [`0x119cC959d84C882893468134eC0F5b78f571EF5B`](https://sepolia.etherscan.io/address/0x119cC959d84C882893468134eC0F5b78f571EF5B#code) on Ethereum Sepolia |
-| **Live dashboard** | https://sentiment-ledger-api.onrender.com |
+| **Live dashboard** | https://innoblock-ps6-sentiment-ledger-fron.vercel.app |
 | **Backend API** | https://sentiment-ledger-api.onrender.com/health |
 | **Demo video** | https://drive.google.com/file/d/1eFxW5YQw4KmBf5qMmNH1hVlvFjRUjjpU/view?usp=sharing |
 | **Repo** | https://github.com/Meenish/innoblock-ps6-sentiment-ledger |
@@ -103,5 +103,8 @@ python -m http.server 8000       # open http://localhost:8000 (not as a file://)
 - Token tagging is keyword-based; the AI scores each headline's impact on the token.
 - Sentiment is an information signal, not a price prediction or trading advice.
 
-## Team
-_Add names and roles._
+## TEAM LOKI
+_G.Meenish_
+_K Alan Biju_
+_E.Jagadeesh_
+_G.Krishna Reddy_
