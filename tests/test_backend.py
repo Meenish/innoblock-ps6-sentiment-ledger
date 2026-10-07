@@ -76,3 +76,23 @@ bad = Chain(w3, addr, w3.provider.ethereum_tester.backend.account_keys[1].to_hex
 r = create_app(chain=bad, post=fake_post).test_client().post("/run-batch", json={"source": "sample"})
 ok(r.status_code == 500 and "not a publisher" in r.json["error"], "non-publisher wallet -> clear error")
 print("runs logged:", [x["status"] for x in c.get("/runs").json["runs"]])
+
+# ---- security checks -------------------------------------------------------
+sc = create_app(chain=chain, post=fake_post).test_client()
+hdr = sc.get("/health").headers
+ok(hdr.get("X-Content-Type-Options") == "nosniff" and hdr.get("X-Frame-Options") == "DENY" and "default-src 'none'" in hdr.get("Content-Security-Policy", ""), "API sends security headers")
+ok(sc.post("/backfill", headers={"X-Admin-Token": "wrong"}).status_code == 403, "wrong admin token rejected")
+ok(sc.post("/backfill", headers={"X-Admin-Token": ""}).status_code == 403, "empty admin token rejected")
+ok(sc.get("/signals?limit=abc").status_code == 200, "non-numeric limit handled, no 500")
+ok(sc.get("/signals?token=BTC';DROP TABLE signals;--").status_code == 400, "SQL-looking token rejected")
+ok(len(sc.get("/signals?token=BTC").json["signals"]) > 0, "signals table intact after injection attempt")
+ok(sc.post("/run-batch", data="x" * 20000, content_type="application/json").status_code == 413, "oversized body refused")
+cors_ok = sc.get("/health", headers={"Origin": config.FRONTEND_ORIGIN}).headers.get("Access-Control-Allow-Origin")
+cors_bad = sc.get("/health", headers={"Origin": "https://evil.example"}).headers.get("Access-Control-Allow-Origin")
+ok(cors_ok == config.FRONTEND_ORIGIN and cors_bad is None, f"CORS allows only the dashboard origin (got {cors_ok!r}, evil={cors_bad!r})")
+config.RATE_LIMIT_PER_MINUTE = 5
+rl = create_app(chain=chain, post=fake_post).test_client()
+codes = [rl.get("/runs").status_code for _ in range(8)]
+ok(codes[:5] == [200] * 5 and 429 in codes[5:], f"per-IP rate limit kicks in {codes}")
+config.RATE_LIMIT_PER_MINUTE = 120
+ok(news.from_rss(feed_urls=["a"], fetch=lambda u: rss.replace("https://x/1", "javascript:alert(1)"))[0][0]["url"] == "", "javascript: feed link dropped at ingestion")

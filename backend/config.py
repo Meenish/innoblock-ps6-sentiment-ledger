@@ -10,7 +10,8 @@ RPC_URL = os.getenv("RPC_URL", "")
 PRIVATE_KEY = os.getenv("PRIVATE_KEY", "")
 CONTRACT_ADDRESS = os.getenv("CONTRACT_ADDRESS", "")
 EXPLORER_URL = os.getenv("EXPLORER_URL", "https://sepolia.etherscan.io").rstrip("/")
-FRONTEND_ORIGIN = os.getenv("FRONTEND_ORIGIN", "*")
+# Exactly one allowed website (no trailing slash). Never "*": any site could then call the API.
+FRONTEND_ORIGIN = os.getenv("FRONTEND_ORIGIN", "https://innoblock-ps6-sentiment-ledger-fron.vercel.app").rstrip("/")
 DATABASE_URL = os.getenv("DATABASE_URL", "")          # empty = local SQLite file
 
 # AI: any OpenAI-compatible chat API (Groq, Gemini, OpenRouter...). Empty key = fallback scorer.
@@ -21,6 +22,7 @@ AI_MODEL = os.getenv("AI_MODEL", "")
 # Admin token for /backfill and for skipping the /run-batch cooldown. Keep it secret.
 ADMIN_TOKEN = os.getenv("ADMIN_TOKEN", "")
 RUN_COOLDOWN_SECONDS = int(os.getenv("RUN_COOLDOWN_SECONDS", "120"))
+RATE_LIMIT_PER_MINUTE = int(os.getenv("RATE_LIMIT_PER_MINUTE", "120"))   # per IP, all routes
 
 # Which tokens we track (keep the list small: every token = AI calls + gas)
 TOKENS = [t.strip().upper() for t in os.getenv("TOKENS", "BTC,ETH,SOL,XRP,DOGE").split(",") if t.strip()]

@@ -38,6 +38,7 @@ def tag_tokens(title, tracked=None):
 
 def _make_article(title, source, url, published_at, origin):
     title = re.sub(r"\s+", " ", (title or "")).strip()
+    url = url if isinstance(url, str) and url.lower().startswith(("http://", "https://")) else ""
     return {"id": article_id(title), "title": title, "source": source or "unknown",
             "url": url or "", "published_at": int(published_at), "tokens": tag_tokens(title),
             "origin": origin}

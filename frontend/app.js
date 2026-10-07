@@ -41,6 +41,9 @@ function el(tag, props = {}, children = []) {          // builds DOM safely: hea
   for (const c of [].concat(children)) node.append(c);
   return node;
 }
+function safeHttpUrl(u) {                              // only real web links; blocks javascript:, data: etc.
+  try { const x = new URL(String(u)); return (x.protocol === "https:" || x.protocol === "http:") ? x.href : ""; } catch { return ""; }
+}
 function showNotice(msg) { $("notice").hidden = !msg; $("notice").textContent = msg || ""; }
 
 async function api(path, opts = {}) {
@@ -139,7 +142,8 @@ function renderWhy(r, d) {
   $("why-method").textContent = `Scored by ${method}. These headlines moved the score the most.`;
   for (const hl of d.top_headlines) {
     const c = classify(hl.score);
-    const title = hl.url ? el("a", { href: hl.url, target: "_blank", rel: "noopener noreferrer", text: hl.title }) : hl.title;
+    const link = safeHttpUrl(hl.url);
+    const title = link ? el("a", { href: link, target: "_blank", rel: "noopener noreferrer", text: hl.title }) : hl.title;
     list.append(el("li", {}, [
       el("span", { class: `h-score label ${c.cls}`, text: signed(hl.score) }),
       el("div", {}, [
